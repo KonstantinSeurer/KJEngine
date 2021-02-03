@@ -1,0 +1,31 @@
+
+layout (local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+
+void hitMain();
+void missMain();
+void nearestHitMain();
+
+#define ACCELERATION_STRUCTURE_SIZE 100
+
+void trace(float data[ACCELERATION_STRUCTURE_SIZE], vec3 P, vec3 D, float tMin, float tMax) {
+	if (D.x > 0.0) {
+		hitMain();
+		nearestHitMain();
+	} else {
+		missMain();
+	}
+}
+
+#define invocationIndex ivec2(gl_GlobalInvocationID.xy)
+#define invocationSize ivec2(gl_NumWorkGroups.xy)
+
+PAYLOADS
+
+RAY_GEN_SOURCE
+HIT_SOURCE
+MISS_SOURCE
+NEAREST_HIT_SOURCE
+
+void main() {
+	rayGenMain();
+}

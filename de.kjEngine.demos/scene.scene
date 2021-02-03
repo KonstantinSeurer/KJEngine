@@ -1,0 +1,28 @@
+{
+    "entities": [{
+        "models": [{"file": "jar://engine/de/kjEngine/assets/models/cube.obj"}],
+        "name": "cube",
+        "scale": {
+            "x": 2,
+            "y": 1,
+            "z": 2
+        },
+        "position": {
+            "x": 0,
+            "y": -1,
+            "z": 0
+        }
+    }],
+    "sun": {
+        "color": {
+            "x": 3,
+            "y": 3,
+            "z": 3
+        },
+        "direction": {
+            "x": 0.841901,
+            "y": -0.539632,
+            "z": 0
+        }
+    }
+}

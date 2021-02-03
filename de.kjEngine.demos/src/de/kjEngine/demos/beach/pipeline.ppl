@@ -1,0 +1,154 @@
+{
+	"prepassStages": [
+		{
+			"type": "phillipsOceanHeightMapRenderer"
+		},
+		{
+			"type": "shadowMapRenderer",
+			"pipeline": {
+				"stages": [
+					{
+						"type": "shadowDepthMapTiledTerrainRenderer"
+					},
+					{
+						"type": "shadowDepthMapOutput",
+						"inputs": {
+							"depth": {
+								"stage": 0,
+								"output": "depth"
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "pbrAtmosphereOpticalDepthLUTRenderer"
+		}
+	],
+	"stages": [
+		{
+			"type": "deferredPbrModelRenderer"
+		},
+		{
+			"type": "deferredPbrTiledTerrainRenderer",
+			"inputs": {
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				}
+			}
+		},
+		{
+			"type": "colorInput",
+			"r": 0.06,
+			"g": 0.1,
+			"b": 0.3,
+			"a": 1.0
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"albedo": {
+					"stage": 1,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 1,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 1,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 1,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 1,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 1,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 1,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 2,
+					"output": "color"
+				},
+				"globalSpecular": {
+					"stage": 2,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "forwardTiledOceanRenderer",
+			"inputs": {
+				"depth": {
+					"stage": 1,
+					"output": "depth"
+				},
+				"base": {
+					"stage": 3,
+					"output": "result"
+				},
+				"environment": {
+					"stage": 2,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "pbrAtmosphereRenderer",
+			"inputs": {
+				"depth": {
+					"stage": 4,
+					"output": "depth"
+				},
+				"base": {
+					"stage": 4,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 5,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

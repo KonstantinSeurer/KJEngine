@@ -1,0 +1,13 @@
+{
+	"prepassStages": [
+		{
+			"type": "sceneRenderer",
+			"pipeline": "file:///scene.ppl"
+		}
+	],
+	"stages": [
+		{
+			"type": "uiModelRenderer"
+		}
+	]
+}

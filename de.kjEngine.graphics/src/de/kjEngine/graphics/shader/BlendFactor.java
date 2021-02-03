@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package de.kjEngine.graphics.shader;
+
+/**
+ * @author konst
+ *
+ */
+public enum BlendFactor {
+	SOURCE_ALPHA, SOURCE_COLOR, ONE_MINUS_SOURCE_ALPHA, ONE_MINUS_SOURCE_COLOR, 
+	DESTINATION_ALPHA, DESTINATION_COLOR, ONE_MINUS_DESTINATION_ALPHA, ONE_MINUS_DESTINATION_COLOR,
+	ZERO, ONE
+}

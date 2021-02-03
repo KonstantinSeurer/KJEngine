@@ -1,0 +1,111 @@
+{
+	"prepassStages": [
+		{
+			"type": "shadowMapRenderer",
+			"pipeline": {
+				"stages": [
+					{
+						"type": "shadowDepthMapPbrModelRenderer"
+					},
+					{
+						"type": "shadowDepthMapOutput",
+						"inputs": {
+							"depth": {
+								"stage": 0,
+								"output": "depth"
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	"stages": [
+		{
+			"type": "deferredPbrModelRenderer"
+		},
+		{
+			"type": "simpleAtmosphereRenderer",
+			"upperColor": {
+				"r": 0.1,
+				"g": 0.25,
+				"b": 0.5
+			},
+			"lowerColor": {
+				"r": 0.25,
+				"g": 0.5,
+				"b": 1.0
+			}
+		},
+		{
+			"type": "equirectangularEnvironmentMapRenderer",
+			"inputs" : {
+				"map": {
+					"stage": 1,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "colorInput",
+			"r": 0.1,
+			"g": 0.25,
+			"b": 0.5,
+			"a": 1.0
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"base": {
+					"stage": 2,
+					"output": "result"
+				},
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 3,
+					"output": "color"
+				},
+				"globalSpecular": {
+					"stage": 3,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 4,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

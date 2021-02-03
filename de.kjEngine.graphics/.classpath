@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl-glfw.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl-shaderc.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl-vulkan.jar" sourcepath="/de.kjEngine.thirdparty/lib/org/lwjgl/source/lwjgl-vulkan-sources.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux/lwjgl-glfw-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux/lwjgl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux/lwjgl-shaderc-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm32/lwjgl-glfw-natives-linux-arm32.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm32/lwjgl-natives-linux-arm32.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm32/lwjgl-shaderc-natives-linux-arm32.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm64/lwjgl-glfw-natives-linux-arm64.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm64/lwjgl-natives-linux-arm64.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm64/lwjgl-shaderc-natives-linux-arm64.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-glfw-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-shaderc-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-vulkan-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows/lwjgl-glfw-natives-windows.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows/lwjgl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows/lwjgl-shaderc-natives-windows.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows-x86/lwjgl-glfw-natives-windows-x86.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows-x86/lwjgl-natives-windows-x86.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows-x86/lwjgl-shaderc-natives-windows-x86.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.util">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.math">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.io">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.thirdparty">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

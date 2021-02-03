@@ -1,0 +1,164 @@
+{
+	"prepassStages": [
+		{
+			"type": "shadowMapRenderer",
+			"pipeline": {
+				"stages": [
+					{
+						"type": "shadowDepthMapPbrModelRenderer"
+					},
+					{
+						"type": "shadowDepthMapOutput",
+						"inputs": {
+							"depth": {
+								"stage": 0,
+								"output": "depth"
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	"stages": [
+		{
+			"type": "deferredPbrModelRenderer"
+		},
+		{
+			"type": "deferredPbrTiledTerrainRenderer",
+			"inputs": {
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				}
+			}
+		},
+		{
+			"type": "simpleAtmosphereRenderer",
+			"upperColor": {
+				"r": 0.3,
+				"g": 0.15,
+				"b": 0.05
+			},
+			"lowerColor": {
+				"r": 0.7,
+				"g": 0.35,
+				"b": 0.175
+			}
+		},
+		{
+			"type": "equirectangularEnvironmentMapRenderer",
+			"inputs" : {
+				"map": {
+					"stage": 2,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "colorInput",
+			"r": 0.3,
+			"g": 0.15,
+			"b": 0.05,
+			"a": 1.0
+		},
+		{
+			"type": "ssaoFilter",
+			"inputs": {
+				"texture": {
+					"stage": 4,
+					"output": "color"
+				},
+				"normal": {
+					"stage": 1,
+					"output": "normal"
+				},
+				"depth": {
+					"stage": 1,
+					"output": "depth"
+				}
+			},
+			"amount": 1.5,
+			"radius": 0.1,
+			"sampleCount": 20
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"base": {
+					"stage": 3,
+					"output": "result"
+				},
+				"albedo": {
+					"stage": 1,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 1,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 1,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 1,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 1,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 1,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 1,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 5,
+					"output": "result"
+				},
+				"globalSpecular": {
+					"stage": 4,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 6,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

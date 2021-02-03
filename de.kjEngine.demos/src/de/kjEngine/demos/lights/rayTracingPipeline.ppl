@@ -1,0 +1,25 @@
+{
+	"stages": [
+		{
+			"type": "pbrRayTracer"
+		},
+		{
+			"type": "bloomFilter",
+			"inputs": {
+				"texture": {
+					"stage": 0,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 1,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

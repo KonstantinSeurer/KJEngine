@@ -1,0 +1,95 @@
+{
+	"prepassStages": [
+		{
+			"type": "shadowMapRenderer"
+		}
+	],
+	"stages": [
+		{
+			"type": "deferredOpaqueEntityRenderer"
+		},
+		{
+			"type": "simpleAtmosphereRenderer",
+			"upperColor": {
+				"r": 0.3,
+				"g": 0.5,
+				"b": 0.8
+			},
+			"lowerColor": {
+				"r": 1.0,
+				"g": 1.0,
+				"b": 1.0
+			}
+		},
+		{
+			"type": "equirectengularEnvironmentMapRenderer",
+			"inputs" : {
+				"map": {
+					"stage": 1,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "colorInput",
+			"r": 0.2,
+			"g": 0.3,
+			"b": 0.6,
+			"a": 1.0
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"base": {
+					"stage": 2,
+					"output": "result"
+				},
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 3,
+					"output": "color"
+				},
+				"globalSpecular": {
+					"stage": 3,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 4,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

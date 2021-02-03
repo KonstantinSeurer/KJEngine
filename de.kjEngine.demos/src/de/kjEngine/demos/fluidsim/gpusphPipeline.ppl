@@ -1,0 +1,57 @@
+{
+	"prepassStages": [
+	],
+	"stages": [
+		{
+			"type": "simpleAtmosphereRenderer",
+			"upperColor": {
+				"r": 0.3,
+				"g": 0.5,
+				"b": 0.8
+			},
+			"lowerColor": {
+				"r": 1.0,
+				"g": 1.0,
+				"b": 1.0
+			}
+		},
+		{
+			"type": "equirectengularEnvironmentMapRenderer",
+			"inputs" : {
+				"map": {
+					"stage": 0,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "colorInput",
+			"r": 1.0,
+			"g": 1.0,
+			"b": 1.0,
+			"a": 1.0
+		},
+		{
+			"type": "forwardSphDebugRenderer",
+			"inputs": {
+				"depth": {
+					"stage": 2,
+					"output": "color"
+				},
+				"base": {
+					"stage": 1,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 3,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

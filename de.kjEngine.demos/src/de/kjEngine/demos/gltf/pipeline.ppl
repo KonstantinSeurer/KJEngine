@@ -1,0 +1,130 @@
+{
+	"stages": [
+		{
+			"type": "deferredOpaqueEntityRenderer"
+		},
+		{
+			"type": "textureInput",
+			"rl": "jar://app/de/kjEngine/demos/gltf/environment.hdr"
+		},
+		{
+			"type": "equirectengularEnvironmentMapRenderer"
+		},
+		{
+			"type": "lightProbeRenderer",
+			"inputs": {
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				}
+			}
+		},
+		{
+			"type": "ssaoFilter",
+			"inputs": {
+				"texture": {
+					"stage": 3,
+					"output": "diffuse"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				}
+			},
+			"radius": 0.1,
+			"amount": 1.0,
+			"sampleCount": 50
+		},
+		{
+			"type": "ssrRenderer",
+			"inputs": {
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"base": {
+					"stage": 3,
+					"output": "specular"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				}
+			}
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"base": {
+					"stage": 1,
+					"output": "result"
+				},
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"distance": {
+					"stage": 0,
+					"output": "distance"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 4,
+					"output": "result"
+				},
+				"globalSpecular": {
+					"stage": 5,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 6,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

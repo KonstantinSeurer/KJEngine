@@ -1,0 +1,132 @@
+{
+	"prepassStages": [
+		{
+			"type": "ue4LightProbeUpdater",
+			"renderer": {
+				"stages": [
+					{
+						"type": "textureInput",
+						"rl": "jar://app/de/kjEngine/demos/spheres/environment.hdr"
+					},
+					{
+						"type": "equirectengularEnvironmentMapRenderer",
+						"inputs": {
+							"map": {
+								"stage": 0,
+								"output": "texture"
+							}
+						},
+						"width": 256,
+						"height": 256
+					}
+				]
+			}
+		}
+	],
+	"stages": [
+		{
+			"type": "deferredOpaqueEntityRenderer"
+		},
+		{
+			"type": "textureInput",
+			"rl": "jar://app/de/kjEngine/demos/spheres/environment.hdr"
+		},
+		{
+			"type": "equirectengularEnvironmentMapRenderer",
+			"inputs": {
+				"map": {
+					"stage": 1,
+					"output": "texture"
+				}
+			}
+		},
+		{
+			"type": "ue4LightProbeRenderer",
+			"inputs": {
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				}
+			}
+		},
+		{
+			"type": "deferredPbrShader",
+			"inputs": {
+				"base": {
+					"stage": 2,
+					"output": "result"
+				},
+				"albedo": {
+					"stage": 0,
+					"output": "albedo"
+				},
+				"normal": {
+					"stage": 0,
+					"output": "normal"
+				},
+				"subsurface": {
+					"stage": 0,
+					"output": "subsurface"
+				},
+				"emission": {
+					"stage": 0,
+					"output": "emission"
+				},
+				"roughness": {
+					"stage": 0,
+					"output": "roughness"
+				},
+				"metalness": {
+					"stage": 0,
+					"output": "metalness"
+				},
+				"distance": {
+					"stage": 0,
+					"output": "distance"
+				},
+				"depth": {
+					"stage": 0,
+					"output": "depth"
+				},
+				"globalDiffuse": {
+					"stage": 3,
+					"output": "diffuse"
+				},
+				"globalSpecular": {
+					"stage": 3,
+					"output": "specular"
+				}
+			}
+		},
+		{
+			"type": "bloomFilter",
+			"inputs": {
+				"texture": {
+					"stage": 4,
+					"output": "result"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 5,
+					"output": "result"
+				}
+			},
+			"sampleCount": 7,
+			"blurRadius": 0.05,
+			"exposure": 0.5,
+			"amount": 0.0
+		}
+	]
+}

@@ -1,0 +1,51 @@
+{
+	"prepassStages": [
+		{
+			"type": "phillipsOceanHeightMapRenderer"
+		}
+	],
+	"stages": [
+		{
+			"type": "simpleAtmosphereRenderer",
+			"scattering": {
+				"r": 0.04,
+				"g": 0.08,
+				"b": 0.2
+			},
+			"falloff": 0.01
+		},
+		{
+			"type": "colorInput",
+			"r": 1.0,
+			"g": 1.0,
+			"b": 1.0,
+			"a": 1.0
+		},
+		{
+			"type": "forwardOceanRenderer",
+			"inputs": {
+				"depth": {
+					"stage": 1,
+					"output": "color"
+				},
+				"base": {
+					"stage": 0,
+					"output": "result"
+				},
+				"environment": {
+					"stage": 1,
+					"output": "color"
+				}
+			}
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 2,
+					"output": "result"
+				}
+			}
+		}
+	]
+}

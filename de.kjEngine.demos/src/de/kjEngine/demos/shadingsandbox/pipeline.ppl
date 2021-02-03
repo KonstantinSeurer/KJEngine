@@ -1,0 +1,18 @@
+{
+	"prepassStages": [
+	],
+	"stages": [
+		{
+			"type": "shadingSandbox"
+		},
+		{
+			"type": "acesTonemappingFilter",
+			"inputs": {
+				"texture": {
+					"stage": 0,
+					"output": "result"
+				}
+			}
+		}
+	]
+}
