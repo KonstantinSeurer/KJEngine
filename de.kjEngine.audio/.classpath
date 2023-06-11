@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl-openal.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/lwjgl.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux/lwjgl-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux/lwjgl-openal-natives-linux.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm32/lwjgl-natives-linux-arm32.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm32/lwjgl-openal-natives-linux-arm32.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm64/lwjgl-natives-linux-arm64.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/linux-arm64/lwjgl-openal-natives-linux-arm64.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/macos/lwjgl-openal-natives-macos.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows/lwjgl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows/lwjgl-openal-natives-windows.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows-x86/lwjgl-natives-windows-x86.jar"/>
+	<classpathentry kind="lib" path="/de.kjEngine.thirdparty/lib/org/lwjgl/windows-x86/lwjgl-openal-natives-windows-x86.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.io">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.util">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kjEngine.math">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
